@@ -13,3 +13,6 @@ if [[ $OSX ]]; then
 	groupmod -o -g $TARGET_GID mysql || true
 	chown -R mysql:root /var/run/mysqld/
 fi
+
+echo '* Starting MySQL'
+/entrypoint.sh mysqld --user=mysql --console

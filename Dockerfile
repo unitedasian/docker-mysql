@@ -6,4 +6,6 @@ ENV OSX false
 
 COPY conf.d/ /etc/mysql/conf.d/
 
-COPY docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
+COPY start.sh /start.sh
+
+ENTRYPOINT "/start.sh"
