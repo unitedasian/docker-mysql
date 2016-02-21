@@ -15,5 +15,4 @@ fi
 
 echo
 echo '* Starting MySQL'
-chown -R mysql:root /var/run/mysqld/
 /./entrypoint.sh mysqld --user=mysql --console
