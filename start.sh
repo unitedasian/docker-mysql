@@ -11,4 +11,8 @@ if [[ $OSX ]]; then
 	TARGET_GID=$(stat -c "%g" /var/lib/mysql)
 	echo '-- Setting mysql group to use gid '$TARGET_GID
 	groupmod -o -g $TARGET_GID mysql || true
+	chown -R mysql:root /var/run/mysqld/
 fi
+
+echo '* Starting MySQL'
+/entrypoint.sh mysqld --user=mysql --console
