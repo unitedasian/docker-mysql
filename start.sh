@@ -3,7 +3,7 @@ set -e
 
 # Script to workaround docker-machine/boot2docker OSX host volume issues: https://github.com/docker-library/mysql/issues/99
 
-if [[ $OSX ]]; then 
+if [[ -v OSX ]]; then 
 	echo '* Working around permission errors locally by making sure that "mysql" uses the same uid and gid as the host volume'
 	TARGET_UID=$(stat -c "%u" /var/lib/mysql)
 	echo '-- Setting mysql user to use uid '$TARGET_UID
